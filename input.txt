@@ -1,0 +1,6 @@
+abc
+hello abc world
+xabcx
+abcabcabc
+ABC Abc aBc
+The word abc appears twice: abc.
