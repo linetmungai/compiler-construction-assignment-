@@ -1,0 +1,38 @@
+
+%{
+#include <stdio.h>
+%}
+
+%option noyywrap
+
+%%
+
+abc       { printf("ABC"); }
+(.|\n)    { ECHO; }
+
+%%
+
+int main(int argc, char *argv[])
+{
+    if (argc > 1)
+    {
+        FILE *input_file = fopen(argv[1], "r");
+
+        if (input_file == NULL)
+        {
+            perror("Error opening input file");
+            return 1;
+        }
+
+        yyin = input_file;
+    }
+
+    yylex();
+
+    if (argc > 1)
+    {
+        fclose(yyin);
+    }
+
+    return 0;
+}

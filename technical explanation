@@ -1,0 +1,67 @@
+Technical Explanation: String Replacement Using LEX
+
+1. Objective
+The program reads input and replaces every occurrence of the exact lowercase sequence
+`abc` with the uppercase sequence `ABC`. A match does not need to be a complete word:
+it is also replaced when it appears within a longer string.
+
+2. LEX specification structure
+A LEX specification has three sections, separated by `%%`:
+
+1. Definitions section — declarations and definitions placed before the first `%%`.
+2. Rules section — regular-expression patterns and the actions performed when they match.
+3. User subroutines section — C code placed after the second `%%`.
+
+In this program, the definitions section contains the standard I/O header and the
+`noyywrap` option. The rules section contains the replacement and fallback rules.
+The final section contains `main()`.
+
+ 3. Regular expressions and actions
+
+ Rule 1
+```lex
+abc       { printf("ABC"); }
+```
+- **Pattern:** `abc` matches the consecutive lowercase characters `a`, `b`, and `c`.
+- **Action:** `printf("ABC");` prints the replacement text.
+- There are no word-boundary anchors, so the sequence is matched inside longer strings.
+- Matching is case-sensitive by default. Therefore, `ABC`, `Abc`, and `aBc` do not match.
+
+ Rule 2
+```lex
+(.|\n)    { ECHO; }
+```
+- `.` matches any character except a newline.
+- `\n` matches a newline.
+- `|` means alternation, so `(.|\n)` matches either a non-newline character or a newline.
+- `ECHO` copies the matched text to standard output unchanged.
+- This fallback rule preserves all input characters that are not part of a matched `abc`.
+
+Flex selects the rule that matches the most input characters. When the same amount
+of input can be matched by more than one rule, the earlier rule takes priority.
+The `abc` rule matches three characters, while the fallback rule matches one,
+so `abc` is replaced.
+
+ 4. Program control
+- `main()` checks whether an input filename was supplied as a command-line argument.
+- `fopen()` opens that file for reading.
+- `yyin` is Flex's input-file pointer; assigning the opened file to `yyin` makes
+  the scanner read from that file.
+- `yylex()` starts lexical analysis and applies the rules to the input.
+- If no filename is supplied, Flex reads from standard input.
+- `fclose()` closes the file after scanning when a file was supplied.
+
+ 5. Sample behaviour
+
+| Input | Output |
+|---|---|
+| `abc` | `ABC` |
+| `xabcx` | `xABCx` |
+| `abcabc` | `ABCABC` |
+| `ABC` | `ABC` |
+| `Abc` | `Abc` |
+
+6. Scope and limitation
+The implementation replaces only the exact lowercase sequence `abc`. It does not
+replace uppercase or mixed-case variations. This is the default case-sensitive
+behaviour of Flex and is consistent with the literal pattern used in the rules.
