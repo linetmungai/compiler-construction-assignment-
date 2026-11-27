@@ -1,0 +1,15 @@
+%{
+#include <stdio.h>
+%}
+
+%%
+abc      { printf("ABC"); }
+.|\n     { ECHO; }
+%%
+
+int yywrap(void) { return 1; }
+
+int main(void) {
+    yylex();
+    return 0;
+}
