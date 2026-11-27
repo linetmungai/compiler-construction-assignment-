@@ -1,0 +1,74 @@
+Not a target verb: I
+Verb recognized: am
+Not a target verb: ready
+Not a target verb: and
+Not a target verb: she
+Verb recognized: is
+Not a target verb: going
+Not a target verb: to
+Not a target verb: the
+Not a target verb: island
+Not a target verb: We
+Verb recognized: are
+Not a target verb: here
+Not a target verb: while
+Not a target verb: they
+Verb recognized: were
+Not a target verb: away
+Not a target verb: and
+Not a target verb: he
+Verb recognized: was
+Not a target verb: late
+Not a target verb: To
+Verb recognized: be
+Not a target verb: honest
+Verb recognized: being
+Not a target verb: patient
+Verb recognized: has
+Verb recognized: been
+Not a target verb: helpful
+Not a target verb: They
+Verb recognized: do
+Not a target verb: work
+Not a target verb: she
+Verb recognized: does
+Not a target verb: code
+Not a target verb: and
+Not a target verb: we
+Verb recognized: did
+Not a target verb: finish
+Not a target verb: You
+Verb recognized: will
+Not a target verb: pass
+Not a target verb: he
+Verb recognized: would
+Not a target verb: agree
+Not a target verb: and
+Not a target verb: we
+Verb recognized: should
+Not a target verb: test
+Not a target verb: I
+Verb recognized: can
+Not a target verb: try
+Not a target verb: she
+Verb recognized: could
+Not a target verb: help
+Not a target verb: we
+Verb recognized: have
+Not a target verb: time
+Not a target verb: they
+Verb recognized: had
+Not a target verb: fun
+Not a target verb: and
+Not a target verb: we
+Verb recognized: go
+Not a target verb: now
+Not a target verb: The
+Not a target verb: artist
+Not a target verb: lit
+Not a target verb: a
+Not a target verb: cane
+Not a target verb: before
+Not a target verb: doing
+Not a target verb: anything
+Not a target verb: else
